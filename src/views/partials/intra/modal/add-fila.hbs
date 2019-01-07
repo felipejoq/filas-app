@@ -1,0 +1,43 @@
+<!-- Modal -->
+<div class="modal fade" id="addfila" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar una fila de atención</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/user/filas" method="POST">
+        <div class="modal-body">
+          <small><strong>Ayuda:</strong> Al crear una fila de atención usted podrá agregar escritorios y comenzar a
+            gestionar su fila con un tablero público.</small>
+          <p>
+
+            <div class="form-group">
+              <label for="name">Nombre:</label>
+              <input type="text" id="name" required class="form-control" name="name" placeholder="Nombre del tablero...">
+              <small class="form-text text-muted">Ej: Fila venta de pan ó Fila heladería.</small>
+            </div>
+            <div class="form-group">
+              <label for="description">Descripción:</label>
+              <textarea name="description" id="description" required class="form-control" placeholder="Descripción de la fila. Ej: Esta es la fila que atiende la vendora de pan." rows="4"></textarea>
+              <small class="form-text text-muted">Ej: Describa que hace esta fila en su negocio.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="clave_global">Clave global de la fila:</label>
+              <input type="password" id="clave_global" required class="form-control" name="password" placeholder="Clave global de la fila">
+              <small class="form-text text-muted">Esta clave será compartida con las personas que atienden la fila, no estará encriptada.</small>
+            </div>
+
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Crear Fila</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

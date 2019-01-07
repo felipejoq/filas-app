@@ -1,0 +1,37 @@
+<div class="col-md-8 col-sm-12 mt-4 mx-auto">
+    <div class="card">
+        <h5 class="card-header">
+            Filas <span title="Número de filas" class="badge badge-primary badge-pill" data-toggle="tooltip"
+                data-placement="top">{{num_filas}}</span>
+            {{#unless filas}}
+            <span class="float-right">
+                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addfila">
+                    <i class="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Agregar una fila"></i>
+                </button>
+            </span>
+            {{/unless}}
+        </h5>
+        <div class="card-body">
+            {{#if user.verificado }}
+
+            {{#each filas}}
+
+            <div class="d-flex justify-content-between align-items-center">
+                {{ name }} <a href="/user/filas" class="btn btn-success btn-sm">Detalles</a>
+            </div>
+            <hr>
+
+            {{else}}
+
+            Usted no ha creado filas aun, cree una fila.
+
+            {{/each}}
+
+            {{else}}
+            <span>
+                Su cuenta no ha sido verificada: <a href="/verifica/again">Solicitar correo de verificacion</a>.
+            </span>
+            {{/if}}
+        </div>
+    </div>
+</div>

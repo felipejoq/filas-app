@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row mb-3 mt-3 bg-light p-4">
+        <div class="col text-center h3 text-dark">Fila: {{ fila.name }}</div>
+    </div>
+</div>
+
+<div class="jumbotron mb-4 mt-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 d-flex mb-4">
+                <div class="card card-body flex-fill text-center text-white bg-primary">
+                    <p id="num1" style="font-size: 80px;">
+                        Ticket {{ fila.ultimos4.[0].numero }}
+                    </p>
+                    <p id="escritorio1" style="font-size:30px;">
+                        Escritorio Nº {{ fila.ultimos4.[0].escritorio }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm d-flex">
+                <div class="card card-body flex-fill text-center bg-light">
+                    <p id="num2" style="font-size: 60px;">
+                        Ticket {{ fila.ultimos4.[1].numero }}
+                    </p>
+                    <p id="escritorio2" style="font-size:20px;">
+                        Escritorio Nº {{ fila.ultimos4.[1].escritorio }}
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm d-flex">
+                <div class="card card-body flex-fill text-center bg-light">
+                    <p id="num3" style="font-size: 60px;">
+                       Ticket {{ fila.ultimos4.[2].numero }}
+                    </p>
+                    <p id="escritorio3" style="font-size:20px;">
+                        Escritorio Nº {{ fila.ultimos4.[2].escritorio }}
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm d-flex">
+                <div class="card card-body flex-fill text-center bg-light">
+                    <p id="num4" style="font-size: 60px;">
+                        Ticket {{ fila.ultimos4.[3].numero }}
+                    </p>
+                    <p id="escritorio4" style="font-size:20px;">
+                        Escritorio Nº {{ fila.ultimos4.[4].escritorio }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- socket.io -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/socket.io/socket.tablero.js"></script>

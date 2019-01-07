@@ -1,0 +1,21 @@
+<div class="row mt-4">
+    <div class="col-8 mx-auto">
+        <div class="card">
+            <input type="hidden" value="{{fila._id}}" id="_fila">
+            <div class="card-header text-center h3">
+                <span class="text-info">Nombre Fila:</span> "{{fila.name}}"
+            </div>
+            <div class="card-body">
+                <div class="text-center">
+                    <div class="numero_atencion" id="numeroTicket">{{ fila.resumen.ultimo }}</div>
+                    <button type="submit" id="btnSolTicket" class="btn btn-secondary btn-block btn-lg btn-take">
+                        Tomar número
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- socket.io -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/socket.io/socket.nuevo-ticket.js"></script>

@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-8 mt-4 mx-auto">
+        {{#each filas}}
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <strong>Nombre:</strong> {{ name }}
+                <div class="btn-group">
+                    <a href="/user/filas/{{_id}}" class="btn btn-success btn-sm">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="/user/fila/{{_id}}/tablero?fila={{_id}}" class="btn btn-dark btn-sm">Ver tablero</a>
+                    <a href="/user/fila/{{_id}}/tomarticket" class="btn btn-dark btn-sm">Tomar Tickets</a>
+                    <a href="/user/filas/delete/{{_id}}" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <i class="fas fa-info-circle"></i> {{description}}
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-info-circle"></i> Hay XXXX tickets esperando en la cola de la fila por
+                        atención.
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-info-circle"></i> La fila ha atendido XXXX tickets desde que fue creada.
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-info-circle"></i> Para atender la fila visite esta página: Atender fila.
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-info-circle"></i> Entregue la clave global de la fila a los atendedores, si no
+                        la recuerda, ingrese otra clave <a href="/user/filas/{{_id}}">editando la fila.</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="card-footer d-flex justify-content-between align-items-center">
+                <i class="fas fa-list-ul"></i> Escritorios: {{escritorios.length}}
+                <div class="btn-group btn-group-sm">
+                    <a href="/escritorios/add/{{_id}}" class="btn btn-primary">Agregar Escritorio
+                    </a>
+                    <a href="/escritorios/{{_id}}" class="btn btn-success">
+                    Ver Escritorios
+                    </a>
+                    <a href="/atender/fila/{{_id}}" class="btn btn-secondary">
+                    Atender Fila
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{else}}
+        <div class="card">
+            <div class="card-header">
+                Cree su primera
+            </div>
+            <div class="card-body">
+                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addfila">
+                    <i class="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Agregar una fila"></i>
+                    Crear mi primera
+                </button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+{{> intra/modal/add-fila }}

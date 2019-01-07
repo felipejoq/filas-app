@@ -1,0 +1,25 @@
+{{#if exito_msg}}
+<div class="row">
+    <div class="col-12 mt-4 mx-auto">
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            {{ exito_msg }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+</div>
+{{/if}}
+
+{{#if error_msg}}
+<div class="row">
+    <div class="col-12 mt-4 mx-auto">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ error_msg }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+</div>
+{{/if}}

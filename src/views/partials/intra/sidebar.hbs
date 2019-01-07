@@ -1,0 +1,29 @@
+<div class="col-md-4 col-sm-12 mt-4 ">
+    <div class="card">
+        <h5 class="card-header">
+            <i class="fas fa-user-circle"></i> Perfil
+        </h5>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <span title="Su nombre" data-toggle="tooltip" data-placement="top"><i class="fas fa-user"></i> {{
+                        user.name }}</span>
+                </li>
+                <li class="list-group-item">
+                    <span title="Su correo"><i class="fas fa-envelope"></i> {{ user.email }}</span>
+                    {{#if user.verificado }}
+                    <span title="Correo verificado" class="badge badge-success badge-pill" data-toggle="tooltip"
+                        data-placement="top"><i class="fas fa-check-circle"></i></span>
+                    {{else}}
+                    <span title="Su correo no está verificado." class="badge badge-warning badge-pill" data-toggle="tooltip"
+                        data-placement="top"><a href="/verifica/again" class="text-white">Verificar</a></span>
+                    {{/if}}
+                </li>
+                <li class="list-group-item">
+                    <span title="Su rol en el sistema" data-toggle="tooltip" data-placement="top"><i class="fas fa-gopuram"></i>
+                        {{ user.role }}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

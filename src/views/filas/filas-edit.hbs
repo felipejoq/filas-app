@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-8 mx-auto mt-4">
+        <div class="card">
+            <div class="card-header">
+                Editar la lista:
+            </div>
+            <div class="card-body">
+                <form action="/user/filas/{{filaDB._id}}?_method=PUT" method="POST">
+                    <input type="hidden" name="_method" value="PUT">
+                    <div class="form-group">
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" value="{{filaDB.name}}" required class="form-control" name="name"
+                            placeholder="Nombre del tablero...">
+                        <small class="form-text text-muted">Ej: Fila venta de pan ó Fila heladería.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Descripción:</label>
+                        <textarea name="description" id="description" required class="form-control" placeholder="Descripción de la fila. Ej: Esta es la fila que atiende la vendora de pan."
+                            rows="4">{{filaDB.description}}</textarea>
+                        <small class="form-text text-muted">Ej: Describa que hace esta fila en su negocio.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="pass">Editar la clave global</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input id="editPass" name="editapassword" type="checkbox" aria-label="Para editar la clave global, marque esta casilla.">
+                                </div>
+                            </div>
+                            <input type="password" name="password" id="passw" class="form-control" placeholder="Para editar la clave, debe marcar la casilla primero.">
+                        </div>
+                        <small class="form-text text-muted">Para editar la clave global, primero debe marcar la
+                            casilla.</small>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    <a href="/user/filas" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        var inputPassword = $('#passw');
+        inputPassword.attr('disabled', true);
+
+        $('#editPass').change(function () {
+            if ($(this).is(":checked")) {
+                var returnVal = confirm("¿Está seguro que quiere editar la clave global de la fila?");
+                $(this).attr("checked", returnVal);
+                inputPassword.attr('disabled', !returnVal);
+            }else{
+                inputPassword.attr('disabled', true);
+            }
+            $('#textbox1').val($(this).is(':checked'));
+        });
+    });
+</script>

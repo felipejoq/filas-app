@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-6 mt-4 mx-auto">
+        <form action="/escritorios/add/{{id_fila}}" method="POST">
+        <div class="card">
+            <div class="card-header">
+                Agregar un escritorio.
+            </div>
+            <div class="card-body">
+                <p><strong>Nombre fila:</strong> {{name_fila}}</p>
+                <p>Use este formulario para agregar un mesón, escritorio o persona que atiende en esta fila.</p>
+
+
+                <div class="form-group">
+                    <label for="number">Número del escritorio ó mesón:</label>
+                    <input type="number" id="number" name="number" class="form-control">
+                    <small class="form-text text-muted"><strong>Importante:</strong> Se verificá este nombre para atender la fila.</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Descripcion del escritorio:</label>
+                    <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                    <small class="form-text text-muted">Use este campo para describir el mesón o escritorio. También
+                        puede agregar el nombre del encargado que atenderá los tickets.</small>
+                </div>
+            </div>
+            <div class="card-footer text-right">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        Guardar Escritorio
+                    </button>
+                    <a href="/user/filas" class="btn btn-secondary">
+                        Cancelar
+                    </a>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>

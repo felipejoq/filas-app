@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-12 mt-4">
+        <div class="card">
+            <div class="card-header h3">
+                Escritorios de la fila: <span class="text-info">{{nombre_fila}}</span>
+                <span class="btn-group float-right">
+                    <a class="btn btn-success" href="/escritorios/add/{{fila_id}}">Agregar Escrtorio</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    {{#each escritorios as |escritorio|}}
+    <div class="col-3 mt-4 text-center">
+        <div class="card">
+            <div class="card-header h4">
+                Escritorio {{escritorio.number}}
+            </div>
+            <div class="card-body">
+                <p>
+                    Número del escritorio: {{escritorio.number}}
+                </p>
+                <p>
+                    Descripción: {{escritorio.description}}
+                </p>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group btn-group-sm btn-block">
+                    <a class="btn btn-danger" href="/escritorios/delete/{{escritorio._id}}">
+                        <i class="fas fa-trash"></i> Eliminar
+                    </a>
+                    <a class="btn btn-success" href="/escritorios/edit/{{escritorio._id}}">
+                        <i class="fas fa-edit"></i> Editar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="col-5 mt-4 text-center mx-auto">
+        <div class="card">
+            <div class="card-header">
+                Sin escritorios
+            </div>
+            <div class="card-body">
+                <p>
+                    La fila no tiene escritorios.
+                    <a href="/escritorios/add/{{fila_id}}" class="btn btn-success btn-block">
+                        Agregar un escritorio
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+
+
+    
