@@ -3,7 +3,7 @@ const Fila = require('../models/Fila');
 const Escritorio = require('../models/Escritorio');
 const { estaAutenticado, estaVerificado, lePertenece} = require('../middlewares/auth');
 
-router.get('/escritorios/:fila', [estaAutenticado, estaVerificado, lePertenece], async(req, res) => {
+router.get('/escritorios/:fila', [estaAutenticado, estaVerificado, lePertenece], (req, res) => {
     Fila.findById(req.params.fila).populate('escritorios').exec((err, filaDB) => {
 
         if(err){
@@ -74,8 +74,6 @@ router.post('/escritorios/add/:fila_id', [estaAutenticado, estaVerificado, lePer
 });
 
 router.get('/escritorios/delete/:id',[estaAutenticado, estaVerificado, lePertenece], async(req, res) => {
-
-
     Escritorio.findOneAndDelete({_id : req.params.id}, (err, escritorioDel) => {
         if(err){
             req.flash('error_msg', 'Algo salió mal, intentelo de nuevo.');
@@ -86,9 +84,15 @@ router.get('/escritorios/delete/:id',[estaAutenticado, estaVerificado, lePertene
             return res.redirect('back');
         }
         
-        
-        
-        console.log('Escritorio eliminado: ', escritorioDel);
+        Fila.findOne({_id : escritorioDel.fila}, (err, filaUpdate) => {
+            for (let i = 0; i < filaUpdate.escritorios.length; i++) {
+                if(filaUpdate.escritorios[i] = escritorioDel._id){
+                    filaUpdate.escritorios.splice(i, 1);
+                    filaUpdate.save();
+                    break;
+                }
+            }
+        });
         
         req.flash('exito_msg', 'El escritorio fue eliminado.');
         res.redirect('back');

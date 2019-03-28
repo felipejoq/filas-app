@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Usuario = require('../models/User');
 require('../config/global');
 
-cron.schedule('30 * * * *', () => {
+cron.schedule('0 0 * * *', () => {
     mongoose.connect(process.env.DB_URL,{
         useCreateIndex: true,
         useNewUrlParser: true,
